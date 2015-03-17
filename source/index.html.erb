@@ -1,0 +1,17 @@
+<div class="home">
+
+  <h1 class="page-heading">Courses</h1>
+
+  <ul class="course-list">
+    <% paths = sitemap.resources.keep_if { |r| r.url.include? "courses" } %>
+    <% courses = [] %>
+    <% paths.each { |p| courses << p.url.split('/')[2] } %>
+
+    <% courses.uniq.each do |resource| %>
+      <li><%= link_to resource, "/courses/#{resource}/index" %></li>
+    <% end %>
+  </ul>
+</div>
+
+
+
