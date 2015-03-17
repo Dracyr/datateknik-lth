@@ -1,7 +1,7 @@
 <h1>Kurser</h1>
 
 <ul>
-  <% course_tree.children.each do |course| %>
+  <% course_tree.children.sort_by {|c| c.name }.each do |course| %>
     <li><%= link_to course.name, "#{course.path}/index" %></li>
   <% end %>
 </ul>
