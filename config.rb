@@ -1,3 +1,5 @@
+require "source/node.rb"
+
 set :protect_from_csrf, true
 set :layout, :default
 
@@ -86,31 +88,37 @@ activate :deploy do |deploy|
 end
 
 ready do
-  paths = sitemap.resources.select { |r| r.url.include? "courses" } \
-      .map { |p| {resource: p, title: p.url.split('/')[2]} }
-
-  paths = sitemap.resources.select { |r| r.url.include? "courses" }
-  hash = Hash.new { |hash, key| hash[key] =  Hash.new { |hash, key| hash[key] = [] } }
-  paths.each do |path|
-    splits = path.path.split('/').drop(1)
-    if splits.length == 2
-      hash[splits[0]][:files] << splits[1]
-    end
-    if splits.length == 3
-      hash[splits[0]][splits[1]] << splits[2]
-    end
-  end
-
-  hash.each_key do |course|
-    proxy "/courses/#{course}/index", "course.html", locals: { course: course, resources: hash[course] }
+  course_tree.children.each do |course|
+    proxy "/courses/#{course.name}/index", "course.html", locals: { course: course }
   end
 end
 
 
 helpers do
-  def markdown(&block)
-    raise ArgumentError, "Missing block" unless block_given?
-    content = capture_html(&block)
-    concat Tilt['markdown'].new { content }.render
+  def folders(nodes, l = 2)
+    nodes.collect do |node|
+      heading = content_tag("h#{l}", node.name.humanize)
+
+      list = content_tag(:ul) do
+        node.files.collect do |single|
+          content_tag :li do
+            link_to single, "#{node.path}/#{single}"
+          end
+        end.join('')
+      end
+
+      children = node.children.any? ? folders(node.children, [l + 1, 6].min) : ''
+      heading + list + children
+    end.join('').html_safe
+  end
+
+  def course_tree
+    root_node = Node.new('courses', nil)
+
+    sitemap.resources.select { |r| r.url.include? "courses" }.each do |path|
+      splits = path.path.split('/').drop(1)
+      root_node.add_resource(*splits)
+    end
+    root_node
   end
 end
