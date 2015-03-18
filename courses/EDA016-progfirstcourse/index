@@ -21,8 +21,8 @@
 
     <h2>Files</h2>
     <ul>
-        <li><a href="/courses/EDA016-progfirstcourse/programmeringReminder.pdf">Programmeringreminder</a></li>
-        <li><a href="/courses/EDA016-progfirstcourse/programmeringReminder.tex">Programmeringreminder</a></li>
+        <li><a href="programmeringReminder.pdf">programmeringReminder.pdf</a></li>
+        <li><a href="programmeringReminder.tex">programmeringReminder.tex</a></li>
     </ul>
 
       </div>

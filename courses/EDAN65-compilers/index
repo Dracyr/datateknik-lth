@@ -21,8 +21,8 @@
 
     <h2>Files</h2>
     <ul>
-        <li><a href="/courses/EDAN65-compilers/weekly_questions/">Weekly questions</a></li>
-        <li><a href="/courses/EDAN65-compilers/summary/">Summary</a></li>
+        <li><a href="summary/">summary.html</a></li>
+        <li><a href="weekly_questions/">weekly_questions.html</a></li>
     </ul>
 
       </div>

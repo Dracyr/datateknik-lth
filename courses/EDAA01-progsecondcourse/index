@@ -21,12 +21,12 @@
 
     <h2>Files</h2>
     <ul>
-        <li><a href="/courses/EDAA01-progsecondcourse/queueExample-4b80aa6f.png">Queueexample</a></li>
-        <li><a href="/courses/EDAA01-progsecondcourse/heapExample-5c2e0106.png">Heapexample</a></li>
-        <li><a href="/courses/EDAA01-progsecondcourse/ProgFortKurs.tex">Progfortkurs</a></li>
-        <li><a href="/courses/EDAA01-progsecondcourse/traversering_Tree-93bca68d.png">Traversering tree</a></li>
-        <li><a href="/courses/EDAA01-progsecondcourse/ProgFortKurs.pdf">Progfortkurs</a></li>
-        <li><a href="/courses/EDAA01-progsecondcourse/stackExample-6f7aad25.png">Stackexample</a></li>
+        <li><a href="ProgFortKurs.pdf">ProgFortKurs.pdf</a></li>
+        <li><a href="ProgFortKurs.tex">ProgFortKurs.tex</a></li>
+        <li><a href="heapExample-5c2e0106.png">heapExample.png</a></li>
+        <li><a href="queueExample-4b80aa6f.png">queueExample.png</a></li>
+        <li><a href="stackExample-6f7aad25.png">stackExample.png</a></li>
+        <li><a href="traversering_Tree-93bca68d.png">traversering_Tree.png</a></li>
     </ul>
 
       </div>

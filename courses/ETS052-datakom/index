@@ -21,9 +21,9 @@
 
     <h2>Files</h2>
     <ul>
-        <li><a href="/courses/ETS052-datakom/Sammanfattning.pdf">Sammanfattning</a></li>
-        <li><a href="/courses/ETS052-datakom/boiboites.sty">Boiboites</a></li>
-        <li><a href="/courses/ETS052-datakom/Sammanfattning.tex">Sammanfattning</a></li>
+        <li><a href="Sammanfattning.pdf">Sammanfattning.pdf</a></li>
+        <li><a href="Sammanfattning.tex">Sammanfattning.tex</a></li>
+        <li><a href="boiboites.sty">boiboites.sty</a></li>
     </ul>
 
       </div>
