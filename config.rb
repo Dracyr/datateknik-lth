@@ -1,4 +1,4 @@
-require "source/node.rb"
+require "node.rb"
 
 set :protect_from_csrf, true
 set :layout, :default
@@ -89,7 +89,7 @@ end
 
 ready do
   course_tree.children.each do |course|
-    proxy "/courses/#{course.name}/index", "partials/course.html", locals: { course: course }
+    proxy "/courses/#{course.name}/index", "course.html", locals: { course: course }
   end
 end
 

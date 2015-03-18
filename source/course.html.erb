@@ -1,0 +1,22 @@
+<% unless defined?(course).nil? %>
+  <h1><%= course.name %></h1>
+
+  <% if course.files.include?("readme.html") %>
+    <%= partial "/courses/#{course.name}/readme.md" %>
+  <% elsif course.files.include?("README.html") %>
+    <%= partial "/courses/#{course.name}/README.md" %>
+  <% elsif course.files.include?("Readme.html") %>
+    <%= partial "/courses/#{course.name}/Readme.md" %>
+  <% end %>
+
+  <%= folders(course.children) %>
+
+  <% if course.files.any? %>
+    <h2>Files</h2>
+    <ul>
+      <% course.files.each do |file| %>
+        <li><%= link_to file.split('.').first.humanize, "/courses/#{course.name}/#{file}" %></li>
+      <% end %>
+    </ul>
+  <% end %>
+<% end %>
