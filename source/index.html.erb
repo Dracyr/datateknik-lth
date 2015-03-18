@@ -1,8 +1,8 @@
 <h1>Kurser</h1>
 
-<ul>
+<ul class="list-unstyled">
   <% course_tree.children.sort_by {|c| c.name }.each do |course| %>
-    <li><%= link_to course.name, "#{course.path}/index", relative: true %></li>
+    <li><%= link_to course.name, "#{course.path}/index.html", relative: true %></li>
   <% end %>
 </ul>
 

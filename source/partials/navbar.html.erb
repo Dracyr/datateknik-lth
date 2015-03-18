@@ -1,0 +1,13 @@
+<header>
+  <div class="inner">
+    <h1>Datateknik LTH</h1>
+    <a href="https://github.com/datateknik-lth/datateknik-lth" class="button"><small>Visa på</small> GitHub</a>
+
+    <% ab =  current_page.path.split('/') %>
+    <% if ab.length > 1 %>
+      <% ab[0] = (link_to "Kurser", "/", class: 'nav-link') %>
+      <% ab[1] = (link_to ab[1], "/courses/#{ab[1]}", class: 'nav-link') %>
+      <h2><%= ab.join(" / ").gsub(".html", '').html_safe %></h2>
+    <% end %>
+  </div>
+</header>

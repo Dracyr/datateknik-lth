@@ -1,18 +1,11 @@
 require "node.rb"
+require "better_errors"
 
 set :protect_from_csrf, true
 set :layout, :default
 
 activate :directory_indexes
-
-###
-# Compass
-###
-
-# Change Compass configuration
-compass_config do |config|
-  #config.output_style = :compact
-end
+activate :livereload, host: 'localhost'
 
 ###
 # Page options, layouts, aliases and proxies
@@ -42,11 +35,7 @@ end
 # Automatic image dimensions on image_tag helper
 # activate :automatic_image_sizes
 
-require "better_errors"
 configure :development do
-  # Reload the browser automatically whenever files change
-  activate :livereload
-
   use BetterErrors::Middleware
   BetterErrors.application_root = __dir__
 end
@@ -55,6 +44,49 @@ helpers do
   def page_title
     title = data.page.heading ? "#{data.page.heading}" : "Just Another Site"
     strip_tags(title)
+  end
+
+  def folders(nodes, l = 2)
+    nodes.collect do |node|
+      heading = content_tag("h#{l}", node.name.humanize)
+
+      list = content_tag(:ul, class: 'list-unstyled') do
+        node.files.sort.collect do |file|
+          content_tag :li do
+            link_to file.gsub(".html", ''), "#{node.path}/#{file}"
+          end
+        end.join('')
+      end
+
+      children = node.children.any? ? folders(node.children, [l + 1, 6].min) : ''
+      heading + list + children
+    end.join('').html_safe
+  end
+
+  def course_tree
+    root_node = Node.new('courses', nil)
+
+    sitemap.resources.select { |r| r.url.include? "courses" }.each do |path|
+      splits = path.path.split('/').drop(1)
+      root_node.add_resource(*splits)
+    end
+    root_node
+  end
+
+  def course_readme(course)
+    if course.files.include?("readme.html")
+      partial "/courses/#{course.name}/readme.md"
+    elsif course.files.include?("README.html")
+      partial "/courses/#{course.name}/README.md"
+    elsif course.files.include?("Readme.html")
+      partial "/courses/#{course.name}/Readme.md"
+    end
+  end
+end
+
+ready do
+  course_tree.children.each do |course|
+    proxy "/courses/#{course.name}/index.html", "course.html", locals: { course: course }
   end
 end
 
@@ -81,44 +113,8 @@ activate :deploy do |deploy|
   deploy.method = :git
   deploy.build_before = true
   # Optional Settings
-  deploy.remote   = 'git@github.com:Dracyr/datateknik-lth.git' # remote name or git url, default: origin
+  # deploy.remote   = 'custom-url' # remote name or git url, default: origin
   # deploy.branch   = 'custom-branch' # default: gh-pages
   # deploy.strategy = :submodule      # commit strategy: can be :force_push or :submodule, default: :force_push
   # deploy.commit_message = 'custom-message'      # commit message (can be empty), default: Automated commit at `timestamp` by middleman-deploy `version`
-end
-
-ready do
-  course_tree.children.each do |course|
-    proxy "/courses/#{course.name}/index", "course.html", locals: { course: course }
-  end
-end
-
-
-helpers do
-  def folders(nodes, l = 2)
-    nodes.collect do |node|
-      heading = content_tag("h#{l}", node.name.humanize)
-
-      list = content_tag(:ul) do
-        node.files.collect do |single|
-          content_tag :li do
-            link_to single, "#{node.path}/#{single}"
-          end
-        end.join('')
-      end
-
-      children = node.children.any? ? folders(node.children, [l + 1, 6].min) : ''
-      heading + list + children
-    end.join('').html_safe
-  end
-
-  def course_tree
-    root_node = Node.new('courses', nil)
-
-    sitemap.resources.select { |r| r.url.include? "courses" }.each do |path|
-      splits = path.path.split('/').drop(1)
-      root_node.add_resource(*splits)
-    end
-    root_node
-  end
 end
