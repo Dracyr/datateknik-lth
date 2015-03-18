@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8"/>
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible"/>
+    <title>
+      Datateknik-lth
+    </title>
+    <meta name="description"/>
+    <meta content="width=device-width" name="viewport"/>
+    <link href="../../../stylesheets/application-b333b82b.css" rel="stylesheet" type="text/css" />
+    <script src="../../../javascripts/application-ae519d42.js" type="text/javascript"></script>
+  </head>
+  <body>
+    <div class="page-content">
+      <div class="wrapper">
+        <h1 id="summary-questions">Summary Questions</h1>
+
+<h2 id="compiler-phases">Compiler Phases</h2>
+
+<ul>
+  <li>Lexical analysis</li>
+  <li>Syntactic analysis</li>
+  <li>Semantic analysis</li>
+</ul>
+
+<p>Attributed AST</p>
+
+<ul>
+  <li>Intermediate code generation</li>
+  <li>Optimization</li>
+  <li>Target code generation</li>
+</ul>
+
+<h2 id="terminology">Terminology</h2>
+<ul>
+  <li><em>Lexeme</em> is a string corresponding to a token</li>
+  <li><em>Token</em> is a symbolic name</li>
+  <li><em>Parse tree</em> a tree that spans all tokens</li>
+  <li><em>AST</em> a tree with only the essential structure and tokens</li>
+  <li><em>Formal language</em> all strings you can form from the language</li>
+  <li><em>Ambiguous lexical definition</em> when regexps overlap, to prevent this:
+longest match and rule priority</li>
+  <li><em>LL</em> left-to-right scan leftmost derivation  - builds top down</li>
+  <li><em>LR</em> left-to-right scan rightmost derivation - builds bottom up</li>
+  <li><em>LR-item</em> states in a DFA (i.e. that which is on the stack)</li>
+  <li><em>LR-state</em> where you're reading right now in the parsing, represented by dot</li>
+  <li><em>Shift-reduce</em> when you don't know if you should shift or reduce
+    <ul>
+      <li>are resolved by using precedence rules</li>
+    </ul>
+  </li>
+  <li><em>Reduce-reduce</em> when you don't know which production you should use to
+reduce</li>
+  <li>LR vs LALR (look-ahead LR): LR produces large tables, thus LALR is used
+in practice</li>
+  <li>GLR - generalised LR, can parse any grammar, including ambiguous grammars</li>
+  <li><em>Expression problem</em>: the goal is to define a datatype by cases, where one
+can add new cases to the datatype and new functions over the datatype,
+without recompiling existing code, and while retaining static type safety
+    <ul>
+      <li>In functional programming it is easy to extend functionality but not types</li>
+      <li>In OO-programming it is easy to add types but not extend functionality</li>
+    </ul>
+  </li>
+  <li>
+    <p>Visitor pattern: each node to be visited has an accept method that accepts
+a visitor and a data object</p>
+
+    <p>```java
+public interface Visitor {
+    public Object visit(ASTNode node, Object data);
+}</p>
+
+    <p>public Object ASTNode.accept(Visitor visitor, Object data) {
+    return visitor.visit(this, data);
+}</p>
+
+    <p>```</p>
+
+    <p>the visitor class then performs some operation on each node. For instance a
+PrintVisitor might print the AST</p>
+  </li>
+  <li><em>Qualified access</em> "typ a.b()" alltså metodanrop - Andrée Ekroth</li>
+  <li><em>Demand evaluation</em> lazy val, values are cached</li>
+  <li><em>Intrinsic attriutes</em> internal attributes like ID - constructed when
+building the AST</li>
+  <li>Side-effects are not allowed in equations, since the equations are cached</li>
+</ul>
+
+<h2 id="left-factoring">Left factoring</h2>
+
+<p>```
+Exp         -&gt; Name Params | Name
+&lt;=&gt;</p>
+
+<p>Exp         -&gt; Name OptParams
+OptParams   -&gt; Params
+OptParams   -&gt; epsilong
+```</p>
+
+      </div>
+    </div>
+  </body>
+</html>

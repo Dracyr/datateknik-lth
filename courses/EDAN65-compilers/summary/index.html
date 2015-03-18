@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8"/>
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible"/>
+    <title>
+      Datateknik-lth
+    </title>
+    <meta name="description"/>
+    <meta content="width=device-width" name="viewport"/>
+    <link href="../../../stylesheets/application-b333b82b.css" rel="stylesheet" type="text/css" />
+    <script src="../../../javascripts/application-ae519d42.js" type="text/javascript"></script>
+  </head>
+  <body>
+    <div class="page-content">
+      <div class="wrapper">
+        <h1 id="summary">Summary</h1>
+
+<h2 id="ambiguous-grammars">Ambiguous grammars</h2>
+
+<p>Introduce new non-terminals to mitigate the ambiguity.</p>
+
+<p>Ambiguous:
+<code>
+Expr    -&gt; Expr "+" Expr
+Expr    -&gt; Expr "*" Expr
+Expr    -&gt; INT
+Expr    -&gt; "(" Expr ")"
+</code>
+To make unambiguous, introduce new non terminals for each ambiguity. I.e. one
+for a member of the addition and one for the multiplication. The above in an
+unambiguous way becomes:</p>
+
+<p><code>
+Expr    -&gt; Term   ("+" Term)*
+Term    -&gt; Factor ("*" Factor)*
+Factor  -&gt; INT | "(" Expr ")"
+</code>
+One thing to remember is that the factor now has the highest precedence, then
+the term, then the expression.</p>
+
+<h2 id="computing-nullable-first-follow">Computing nullable, FIRST, FOLLOW</h2>
+
+<ul>
+  <li>A non-terminal is <em>nullable</em> if it contains the epsilon production.</li>
+  <li><em>FIRST</em> is a set of the first terminals in the productions for the
+non-terminal.</li>
+  <li><em>FOLLOW</em> is the set of terminals that can follow the non-terminal production.</li>
+</ul>
+
+<h2 id="constructing-an-ll1-table">Constructing an LL(1) table</h2>
+<p>To construct the table, look at each production and compute the token set <em>FIRST</em>
+then add the production <code>p_i</code> under the terminals.</p>
+
+<p>If the non-terminal is nullable, then compute the <em>FOLLOW</em> set and add the
+productions under those terminals.</p>
+
+<p>Example:</p>
+
+<p><code>
+p1: S -&gt; T $
+p2: T -&gt; ID
+p3: T -&gt; "(" L ")"
+p4: L -&gt;  T R
+p5: R -&gt; "," L
+p6: R -&gt; epsilon
+ _______________________________________________________
+| Nonterminal | Nullable | FIRST        | FOLLOW        |
+ -------------------------------------------------------
+|     S       |  false   | { ID, "(" }  |               |
+|     T       |  false   | { ID, "(" }  | { $, "," }    |
+|     L       |  false   | { ID, "(" }  | { ")" }       |
+|     R       |  true    | { "," }      | { ")" }       |
+ -------------------------------------------------------
+ ______________________________
+|   | ID | "(" | ")" | "," | $ |
+ ------------------------------
+| S | p1 | p1  |     |     |   |
+| T | p2 | p3  |     |     |   |
+| L | p4 | p4  |     |     |   |
+| R |    |     | p6  | p5  |   |
+ ------------------------------
+</code></p>
+
+<h2 id="removing-common-prefixes">Removing common prefixes</h2>
+
+<p>In the following example the Element productions share an indirect common prefix</p>
+
+<p><code>
+Graph       -&gt; ElementList
+ElementList -&gt; Element ElementList
+ElementList -&gt; epsilon
+Element     -&gt; Node
+Element     -&gt; Edge
+Node        -&gt; ID
+Edge        -&gt; ID "(" ID "-&gt;" ID ")"
+</code></p>
+
+<p>To eliminate the common prefix we have to get rid of Node and Edge's sharing of
+ID as the first terminal. This is done like so:</p>
+
+<p><code>
+Graph       -&gt; ElementList
+ElementList -&gt; Element ElementList
+ElementList -&gt; epsilon
+Element     -&gt; ID ElementRest
+ElementRest -&gt; "(" ID "-&gt;" ID ")"
+ElementRest -&gt; epsilon
+</code></p>
+
+<p>The conflicting productions are merged.</p>
+
+<h2 id="collection-attributes">Collection attributes</h2>
+
+<p><code>
+coll T A.c() [new T()] with m;
+</code></p>
+
+<ul>
+  <li>Where T is the type</li>
+  <li>A.c() is the location attribute</li>
+  <li>[new T()] is a fresh object of type T</li>
+  <li>m is the collection method which should be a one argument method in T</li>
+</ul>
+
+<h3 id="contribution-attributes">Contribution attributes</h3>
+
+<p><code>
+B contributes T to A.c() for A-ref
+</code></p>
+
+<ul>
+  <li>Where B is the contributing node</li>
+  <li>T is the value contributed to the collection method</li>
+  <li>A.c() is the collection attribute</li>
+  <li>A-ref is a reference to A. This can be propagated down via an inherited
+method</li>
+</ul>
+
+      </div>
+    </div>
+  </body>
+</html>

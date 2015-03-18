@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8"/>
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible"/>
+    <title>
+      Datateknik-lth
+    </title>
+    <meta name="description"/>
+    <meta content="width=device-width" name="viewport"/>
+    <link href="../../../../stylesheets/application-b333b82b.css" rel="stylesheet" type="text/css" />
+    <script src="../../../../javascripts/application-ae519d42.js" type="text/javascript"></script>
+  </head>
+  <body>
+    <div class="page-content">
+      <div class="wrapper">
+        <h1 id="effort-estimation">Effort Estimation</h1>
+
+<h2 id="problems-with-effort-estimation">Problems with Effort Estimation</h2>
+<p>Subjective nature of estimating</p>
+
+<ul>
+  <li>Difficult to produce evidence in support of decision
+    <ul>
+      <li>these bring uncertainties, especially in the early days when there is a
+'learning curve'</li>
+    </ul>
+  </li>
+  <li>Projects differ
+    <ul>
+      <li>Experience on one project may not be applicable to another</li>
+    </ul>
+  </li>
+  <li>Political pressure
+    <ul>
+      <li>Managers may wish to reduce estimated costs in order to win support for
+acceptance of a project proposal</li>
+    </ul>
+  </li>
+  <li>Covering your own back
+    <ul>
+      <li>Avoid later overtime</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="effort-or-cost">Effort or Cost?</h2>
+
+<p><code>
+Effort == work required e.g. person/man-hours
+</code></p>
+
+<p><strong>Cost includes:</strong>
+* Person-hours (salaries, benefits)
+* Moving and living costs for new staff members
+* Training
+* Travel costs
+* Legal &amp; Licensing fees (software, patents, copyright)
+* Contractors and subcontractors
+* Equipment
+* Currency exchange rates
+* Marketing &amp; Advertising
+* Inflation rate</p>
+
+<h2 id="over--and-under-estimating">Over- and under-estimating</h2>
+
+<h3 id="parkinsons-law">Parkinson's Law</h3>
+<blockquote>
+  <p>Work expands to fill the time available</p>
+</blockquote>
+
+<h3 id="brookss">Brooks's</h3>
+<blockquote>
+  <p>Putting more people on a late job makes it later</p>
+</blockquote>
+
+<h3 id="weinbergs-zeroth-law-of-reliability">Weinberg's Zeroth Law of reliability</h3>
+<blockquote>
+  <p>a software project that does not have to meet a reliability requirement
+can meet any other requirement</p>
+</blockquote>
+
+<h1 id="svenska-incoming">SVENSKA INCOMING</h1>
+<p><strong>Vad betyder då den här lagen? Jo det ska ni få veta! (Brace yourselves) Lagen
+innebär att ifall projektet inte har en tydligt specificerad krav på 
+tillförlitlighet när det ska skeppas så kan detta arbiträrt väljas. Vilket
+resulterar i sämre kvalitet som sedan visas i __testning__ eller senare faser.</strong></p>
+
+<ul>
+  <li>Over-estimations =&gt; project likely to take longer</li>
+  <li>Under-estimations =&gt; lower quality in order to meet target</li>
+</ul>
+
+<h2 id="when--why">When &amp; Why</h2>
+<ul>
+  <li>Strategic planning</li>
+  <li>Feasability study</li>
+  <li>Requirements spec</li>
+  <li>Evaluation of suppliers' proposals</li>
+  <li>Project planning</li>
+</ul>
+
+<h2 id="what-dont-we-know">What don't we know?</h2>
+<ul>
+  <li>Customers' needs &amp; expectations - requirements</li>
+  <li>Technical complexity &amp; design components</li>
+  <li>Reuse - internal and external components</li>
+  <li>People
+    <ul>
+      <li>Skills, competence and experience</li>
+      <li>Co-operation &amp; communication</li>
+    </ul>
+  </li>
+  <li>… (srsly wtf, why the dots here grrl?)</li>
+</ul>
+
+<h2 id="bottom-up-versus-top-down-estimation">Bottom-up versus top-down estimation</h2>
+
+<h3 id="bottom-up">Bottom-up</h3>
+<ul>
+  <li>Identify all tasks that have to be done (top-down)</li>
+  <li>Estimate tasks of 1-2 mw, accumulate effort bottom-up</li>
+  <li>Time consuming</li>
+  <li>Useful when no past project data for similar projects exist</li>
+</ul>
+
+<h3 id="top-down">Top down</h3>
+<ul>
+  <li>Produce overall estimate based on project cost drivers</li>
+  <li>Based on past project data</li>
+  <li>Divide overall estimate between jobs done</li>
+</ul>
+
+<p><code>
+effort = (system size) * (productivity rate)
+</code></p>
+
+<h2 id="estimation-methods">Estimation methods</h2>
+<ul>
+  <li>Analogy: case-based, comparative (from previous projects etc)
+    <ul>
+      <li>Look at previous similar tasks, base estimation from diff/error</li>
+    </ul>
+  </li>
+  <li>Parametric or algorithmic models, e.g. function points COCOMO</li>
+  <li>Expert opinion - just guessing?</li>
+  <li>Parkinson and 'price to win' - opportunistic estimates!</li>
+</ul>
+
+<h2 id="basis-for-successful-estimation">Basis for successful estimation</h2>
+<ul>
+  <li>Information about past projects
+    <ul>
+      <li>Need to collect performance details about past project</li>
+    </ul>
+  </li>
+  <li>Need to be able to measure the amount of work involved
+    <ul>
+      <li>Traditional size measurement for software is 'lines of code' - ain't good</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="stages-identify">Stages: Identify</h2>
+<ol>
+  <li>Significant features of the current project</li>
+  <li>Previous project(s) with similar features</li>
+  <li>Base effort on previous similar project. Consider</li>
+  <li>Differences between current and previous projects</li>
+  <li>Possible reasons for error (risk)</li>
+  <li>Measures to reduce uncertainty</li>
+</ol>
+
+<h2 id="algorithmic-estimation">Algorithmic estimation</h2>
+<p>Estimates based on historical data in the form of measurements from earlier
+projects, typically <code>effort = c * size^k</code></p>
+
+<p>Example:
+<code>
+size = lines of code
+1/c  = productivity //e.g. lines of code per day
+</code></p>
+
+<ul>
+  <li>Objective, but good estimate requires
+    <ul>
+      <li>Good experience base</li>
+      <li>Good size estimate</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="parametric-models">Parametric Models</h2>
+<p>Used in top-down approaches. Productivity factors are used
+as parameters. A parametric model normally has formulae in the form</p>
+
+<pre><code>effort = (system size) * (productivity rate)
+</code></pre>
+
+<p>where system size may for example be measured in KLOC (kilo-lines of code) or
+function points and productivity rate in days per KLOC.</p>
+
+<p>Some parametric models are focused on system or task size, while others like
+COCOMO focus on productivity factors.</p>
+
+<h3 id="function-points---albrechtifpug-fp">Function Points - Albrecht/IFPUG FP</h3>
+<p>Models system size</p>
+
+<p><code>
+UFP = SUM(i=1..15, n items of weight i * weight)
+FP   = UFP * "technical complexity factor"
+</code></p>
+
+<h4 id="albrecht-function-point-analysis">Albrecht function point analysis</h4>
+<ul>
+  <li>Top down method developed by Allan Albrecht, IBM.</li>
+  <li>Information systems comprised of five <em>external user types</em>:
+    <ul>
+      <li><em>External input types</em> - input transactions which update internal computer
+files</li>
+      <li><em>External output types</em> - transactions where data is output to the user</li>
+      <li><em>External inquiry types</em> - transactions initiated by the user, which provide
+information but do not update internal files</li>
+      <li><em>Logical internal file types</em> - are the standing files (or datastore) used
+by the system.</li>
+      <li><em>External interface file types</em> - allow for output and input that may pass
+to and from other computer applications</li>
+    </ul>
+  </li>
+  <li>A table consists of "low", "medium" and "high" complexity numbers for the
+above listed points. The amount of items in each category is then multiplied
+by its counterpart in the table. The weighted sum of these are the Albrecht FPs.</li>
+</ul>
+
+<h3 id="cocomo-constructive-cost-model">COCOMO (COnstructive COst MOdel)</h3>
+<p>Developed by Barry W. Boehm. Focuses on productivity factors. The first version (COCOMO81) used the formula</p>
+
+<pre><code>effort = c * size^k
+</code></pre>
+
+<p>where effort is measured in person-months and size in KLOC. c and k are
+constants that depend on the system being developed. The exponent k is selected
+to cause larger projects to require disproportionately more estimated effort
+than smaller ones in the es, as larger projects are often found to be less
+productive in practice.</p>
+
+<p>In COCOMO II there are models for estimates at three different stages in a project; <em>Application composition (inception)</em>, <em>Early design (elaboration)</em> and <em>Post architecture (construction)</em>. The core model is now</p>
+
+<pre><code>pm = A * (size)^(sf) * (em_1) * (em_2) * ... * (em_n)
+</code></pre>
+
+<p>where A is a magical constant and sf, the scale factor, depends on the following <em>exponent driver ratings</em>:</p>
+
+<ul>
+  <li>Precedentedness (PREC)</li>
+  <li>Development flexibility (FLEX)</li>
+  <li>Architecture/risk resolution (RESL)</li>
+  <li>Team cohesion (TEAM)</li>
+  <li>Process maturity (PMAT)</li>
+</ul>
+
+<p>These ratings are estimated on a six level scale ranging from <em>very low</em> to
+<em>extra high</em>. From this guesstimation a table provides a numerical magical
+constant.</p>
+
+<p>em_1..em_n are <em>effort multipliers</em>. A wide range of standard effort
+multipliers are defined in COCOMO II for every development stage along with
+corresponding magical constant.</p>
+
+<h2 id="expert-judgement">Expert judgement</h2>
+
+<p>Ask an important looking person to pull a suitable guesstimation out of his
+pocket. Research show that expert judgement in practice often is based on
+<em>analogy</em>.[citation needed]</p>
+
+<p>How to? First, find the right people (people with experience from similar
+products and processes). Then, ask the right questions (present context and
+goals, be specific about resource restrictions). Finally, ensure the experts
+have time to think about it.</p>
+
+      </div>
+    </div>
+  </body>
+</html>
