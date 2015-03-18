@@ -7,6 +7,9 @@ set :layout, :default
 activate :directory_indexes
 activate :livereload, host: 'localhost'
 
+set :markdown_engine, :redcarpet
+set :markdown, fenced_code_blocks: true
+
 ###
 # Page options, layouts, aliases and proxies
 ###
@@ -53,7 +56,7 @@ helpers do
       list = content_tag(:ul, class: 'list-unstyled') do
         node.files.sort.collect do |file|
           content_tag :li do
-            link_to file.gsub(".html", ''), "#{node.path}/#{file}"
+            link_to file.gsub(".html", ''), "#{node.path}/#{file}", relative: true
           end
         end.join('')
       end
