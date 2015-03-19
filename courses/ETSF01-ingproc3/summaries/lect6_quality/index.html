@@ -6,8 +6,9 @@
     <title>Datateknik LTH</title>
     <meta name="description"/>
     <meta content="width=device-width" name="viewport"/>
-    <link href="../../../../stylesheets/application-44e2ed09.css" rel="stylesheet" type="text/css" />
-    <script src="../../../../javascripts/application-da39a3ee.js" type="text/javascript"></script>
+    <link href="../../../../stylesheets/application-8a4f0e68.css" rel="stylesheet" type="text/css" />
+    <script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+    <script src="../../../../javascripts/application-06509b7c.js" type="text/javascript"></script>
   </head>
   <body>
     <header>
@@ -23,21 +24,27 @@
     <div id="content-wrapper">
       <div class="inner clearfix">
         <section id="main-content">
-          <h1 id="quality-management">Quality Management</h1>
+          <h1>Quality Management</h1>
+
 <p>Quality is about meeting the minimum standard
 required to satisfy customer needs.</p>
 
-<h2 id="iso-9126">ISO 9126</h2>
-<p>### Quality in use
-* Effectiveness - ability to achieve user goals with
-accuracy and completeness
-* Productivity - avoids excessive use of resources in
-achieving user goals
-* Safety - within reasonable levels of risk of harm to
-people, business, software, property, environment etc
-* Satisfaction - happy users!</p>
+<h2>ISO 9126</h2>
 
-<h3 id="external-software-quality-characteristics">External Software Quality Characteristics</h3>
+<h3>Quality in use</h3>
+
+<ul>
+<li>Effectiveness - ability to achieve user goals with
+accuracy and completeness</li>
+<li>Productivity - avoids excessive use of resources in
+achieving user goals</li>
+<li>Safety - within reasonable levels of risk of harm to
+people, business, software, property, environment etc</li>
+<li>Satisfaction - happy users!</li>
+</ul>
+
+<h3>External Software Quality Characteristics</h3>
+
 <p><strong>FEMURP</strong>
 * <strong>F</strong> unctionality - does it satisfy user needs?
 * <strong>E</strong> fficiency - relates to the physical resources
@@ -50,90 +57,94 @@ of performance?
 * <strong>P</strong> ortability - how easy can it be moved to a
 new environment?</p>
 
-<h2 id="tqm---total-quality-management">TQM - Total Quality Management</h2>
+<h2>TQM - Total Quality Management</h2>
 
-<p>```
- <strong>__</strong><strong>__       __</strong><strong>__</strong><strong>__
+<pre><code> __________       ______________
 |          |     |              |
 | Focus on |     |   Improve    |
-| processes|</strong><strong><em>|_continuously |
-|</em></strong><strong>__</strong>/        _<strong>__</strong><strong>__<em>|
+| processes|_____|_continuously |
+|_________/        \____________|
          /          \
         /  Focus on  \
         \  customers /
- __</em></strong><strong><em>\          /</em></strong><strong>__</strong><strong>___
-|         _</strong><strong>__<em>/               |
+ ________\          /______________
+|         \________/               |
 | Base decisions | | Let everybody |
 |    on facts    | | be committed  |
-|</em></strong><strong>__</strong><strong>__</strong><em>| |</em><strong>__</strong><strong>__</strong>__|</p>
+|________________| |_______________|
 
-<pre><code>   Committed leadership ```
+       Committed leadership
 </code></pre>
 
-<h2 id="practical">Practical</h2>
+<h2>Practical</h2>
+
 <ul>
-  <li>Quality plan</li>
-  <li>Define criteria for activities &amp; include inspections</li>
-  <li>When are we done?
-    <ul>
-      <li>Monitoring quality levels</li>
-      <li>Release decision based on quality measurements</li>
-    </ul>
-  </li>
+<li>Quality plan</li>
+<li>Define criteria for activities &amp; include inspections</li>
+<li>When are we done?
+
+<ul>
+<li>Monitoring quality levels</li>
+<li>Release decision based on quality measurements</li>
+</ul></li>
 </ul>
 
-<h2 id="quality-plan">Quality Plan</h2>
+<h2>Quality Plan</h2>
+
 <p>A quality plan can be seen as a checklit that all quality
 issues have been dealt with by the planning process.</p>
 
 <ul>
-  <li>scope of plan &amp; references to other documents</li>
-  <li>quality management, incl organization, tasks, and responsibilities</li>
-  <li>documentation to be produced</li>
-  <li>standards, practices and conventions, reviews and audits</li>
-  <li>testing strategy and plan</li>
-  <li>problem reporting and corrective action</li>
-  <li>tools, techniques, and methodologies</li>
-  <li>code, media and supplier control</li>
-  <li>records collection, maintenance and retention</li>
-  <li>training</li>
-  <li>risk management - methods of risk management that are to be used</li>
+<li>scope of plan &amp; references to other documents</li>
+<li>quality management, incl organization, tasks, and responsibilities</li>
+<li>documentation to be produced</li>
+<li>standards, practices and conventions, reviews and audits</li>
+<li>testing strategy and plan</li>
+<li>problem reporting and corrective action</li>
+<li>tools, techniques, and methodologies</li>
+<li>code, media and supplier control</li>
+<li>records collection, maintenance and retention</li>
+<li>training</li>
+<li>risk management - methods of risk management that are to be used</li>
 </ul>
 
-<h2 id="clear-criterias-for-activitiesinspections">Clear criterias for activities/inspections</h2>
+<h2>Clear criterias for activities/inspections</h2>
+
 <ul>
-  <li>Entry requirements - test data and expected results prepared</li>
-  <li>Implementation requirements - "when error is found, do this and that"</li>
-  <li>Exit requirements - done when all tests ok</li>
+<li>Entry requirements - test data and expected results prepared</li>
+<li>Implementation requirements - &quot;when error is found, do this and that&quot;</li>
+<li>Exit requirements - done when all tests ok</li>
 </ul>
 
-<h2 id="when-are-we-done">When are we done?</h2>
+<h2>When are we done?</h2>
+
 <p>It is not possible to <strong>know</strong> when there are no more errors, this
 has to be estimated. Using testing techniques or expert opinion.</p>
 
-<h3 id="result">Result</h3>
+<h3>Result</h3>
 
 <ul>
-  <li>Successful?
-    <ul>
-      <li>Delivered on time</li>
-      <li>Delivered within budget</li>
-    </ul>
-  </li>
-  <li>Gains
-    <ul>
-      <li>Quality product that meets customer need</li>
-      <li>New lessons learnt (experience, process improvements)</li>
-    </ul>
-  </li>
+<li>Successful?
+
+<ul>
+<li>Delivered on time</li>
+<li>Delivered within budget</li>
+</ul></li>
+<li>Gains
+
+<ul>
+<li>Quality product that meets customer need</li>
+<li>New lessons learnt (experience, process improvements)</li>
+</ul></li>
 </ul>
 
-<h2 id="summary">Summary</h2>
+<h2>Summary</h2>
+
 <ul>
-  <li>Quality is a vague concept, things have to be carefully defined</li>
-  <li>Most qualities that are apparent to users can only be tested with the complete product</li>
-  <li>Need ways of testing during development to see how the final product will behave</li>
-  <li>Some techniques concentrate on testing the product of the development process, while others test the
+<li>Quality is a vague concept, things have to be carefully defined</li>
+<li>Most qualities that are apparent to users can only be tested with the complete product</li>
+<li>Need ways of testing during development to see how the final product will behave</li>
+<li>Some techniques concentrate on testing the product of the development process, while others test the
 process itself.</li>
 </ul>
 

@@ -6,8 +6,9 @@
     <title>Datateknik LTH</title>
     <meta name="description"/>
     <meta content="width=device-width" name="viewport"/>
-    <link href="../../../../stylesheets/application-44e2ed09.css" rel="stylesheet" type="text/css" />
-    <script src="../../../../javascripts/application-da39a3ee.js" type="text/javascript"></script>
+    <link href="../../../../stylesheets/application-8a4f0e68.css" rel="stylesheet" type="text/css" />
+    <script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+    <script src="../../../../javascripts/application-06509b7c.js" type="text/javascript"></script>
   </head>
   <body>
     <header>
@@ -24,28 +25,29 @@
       <div class="inner clearfix">
         <section id="main-content">
           <ol>
-  <li>A set of nodes</li>
-  <li>Unecessary to insert in all nodes</li>
-  <li><code>DF_local(w)</code> are the successors which you don't dominate
+<li> A set of nodes </li>
+<li> Unecessary to insert in all nodes</li>
+<li> <code>DF_local(w)</code> are the successors which you don&#39;t dominate
 <code>DF_up(w)</code> idom(w) does not dominate one of the nodes in the DF</li>
-  <li>Definition in start node</li>
-  <li>A critical edge is an arc whose tail vertex has multiple successors and
+<li> Definition in start node</li>
+<li> A critical edge is an arc whose tail vertex has multiple successors and
 whose head vertex has multiple predecessor. When translating from SSA form
 we need a safe place to place copy statements. Phi functions are replaced
 by inserting copy statements in the predecessor vertices. Thus we cannot
-have critical edges.</li>
-  <li>Copy statements are replaced by moves</li>
-  <li>Appel &amp; George</li>
-  <li>If they are live at the same time</li>
-  <li>They get the same color</li>
-  <li>Instead of spilling a node directly it is pushed to the stack as if it
+have critical edges. </li>
+<li> Copy statements are replaced by moves</li>
+<li> Appel &amp; George</li>
+<li> If they are live at the same time</li>
+<li> They get the same color</li>
+<li>Instead of spilling a node directly it is pushed to the stack as if it
 had fewer than K (number of colors) neighbors. When it is popped, it is
 checked if the node has less than K colored neighbors.</li>
 </ol>
 
-<h1 id="terminology">Terminology</h1>
+<h1>Terminology</h1>
 
-<h2 id="insertion-of-phi-functions">Insertion of PHI functions</h2>
+<h2>Insertion of PHI functions</h2>
+
 <p>PHI function for x is inserted in union of <code>DF(v)</code> where <code>v</code> is a vertex where
 x is assigned.</p>
 
@@ -53,17 +55,16 @@ x is assigned.</p>
 take the union of their dominator frontiers (in this case) 3, 4, and 6 resulting
 in:</p>
 
-<p><code>
-DF1(A) = { 3, 4, 6 }
+<pre><code>DF1(A) = { 3, 4, 6 }
 A = { 0, 2, 7 }
-</code></p>
+</code></pre>
 
 <p>For each of these we will take the union of their respective DF. I.e.</p>
 
-<p><code>
-DF2(A + DF1(A)) =  DF(0) + DF(2) + DF(7) + DF(DF1(A))
-</code>
-Then iterate untill the set is unchanged.</p>
+<pre><code>DF2(A + DF1(A)) =  DF(0) + DF(2) + DF(7) + DF(DF1(A))
+</code></pre>
+
+<p>Then iterate untill the set is unchanged.</p>
 
       </div>
     </div>

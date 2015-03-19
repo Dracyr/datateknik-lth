@@ -6,8 +6,9 @@
     <title>Datateknik LTH</title>
     <meta name="description"/>
     <meta content="width=device-width" name="viewport"/>
-    <link href="../../../../stylesheets/application-44e2ed09.css" rel="stylesheet" type="text/css" />
-    <script src="../../../../javascripts/application-da39a3ee.js" type="text/javascript"></script>
+    <link href="../../../../stylesheets/application-8a4f0e68.css" rel="stylesheet" type="text/css" />
+    <script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+    <script src="../../../../javascripts/application-06509b7c.js" type="text/javascript"></script>
   </head>
   <body>
     <header>
@@ -23,15 +24,15 @@
     <div id="content-wrapper">
       <div class="inner clearfix">
         <section id="main-content">
-          <h1 id="programme--portfolio-management">Programme &amp; Portfolio Management</h1>
+          <h1>Programme &amp; Portfolio Management</h1>
 
-<h2 id="project-business-case--contracts">Project: Business case &amp; contracts</h2>
+<h2>Project: Business case &amp; contracts</h2>
 
 <p>A business case may be presented for several potential projects. It should show
 that the benefits of the project will exceed development, implementation and 
-operational costs. This is part of portfolio management.</p>
+operational costs. This is part of portfolio management. </p>
 
-<h3 id="content-of-a-business-case">Content of a business case:</h3>
+<h3>Content of a business case:</h3>
 
 <dl>
   <dt>Introduction/background</dt>
@@ -57,66 +58,89 @@ operational costs. This is part of portfolio management.</p>
     business aspects that affect profit.</dd>
   <dt>Management Plan</dt>
   <dd>Missing information but part of the business plan.
+</dl>
 
+<h3>Selection of project approach</h3>
 
-### Selection of project approach
+<p><em>steps from Step Wise chart</em></p>
 
-*steps from Step Wise chart*
+<ul>
+<li><p><strong>2 Organization structure needed</strong></p>
 
-- **2 Organization structure needed**
-  - Make/buy/outsource
-  - Make/reuse/
-  - Make/share
-  - ...
+<ul>
+<li>Make/buy/outsource</li>
+<li>Make/reuse/</li>
+<li>Make/share</li>
+<li>...</li>
+</ul></li>
+<li><p><strong>3 Process model</strong></p></li>
+</ul>
 
-- **3 Process model**
+<h3>Buying from external suppliers</h3>
 
-### Buying from external suppliers
+<p>Different buy-situations:
+* <strong>Bespoke system/component</strong>
+* <strong>Outsourcing a task</strong>
+* <strong>Commercial off-the-shelf (COTS)</strong>
+  - bought <em>as is</em>
+  - customized</p>
 
-  Different buy-situations:
-* **Bespoke system/component**
-* **Outsourcing a task**
-* **Commercial off-the-shelf (COTS)**
-  - bought *as is*
-  - customized
+<h3>Types of contract</h3>
 
-### Types of contract
-* **Fixed price contracts**: fixed price, terms, requirements &amp; delivery time
-  - + known cost, supplier motivation
-  - - higher price to absorb the additional risk, frozen requirements,
-  *impossible* cost -- quality risk
-* **Time and materails contracts**: fixed rate/unit of effort
-  - + requirements changes, lack of price pressure
-  - - customer liability due to uncertain cost &amp; commitment, lack of incentive
-      for supplier
-* **Fixed price per delivered unit**: incremental delivery and payment =&gt; a
-    series of contracts
-  - + customer understanding price calculation, comparability between pricing
-      schedules, emerging functionality can be accounted, supplier motivated to
-      be cost-effective
-  - - difficulties with SW size measurement - may need independent fixed price
-      counter, changing requirements - how do you charge?
+<ul>
+<li><strong>Fixed price contracts</strong>: fixed price, terms, requirements &amp; delivery time
 
-### Cost-benefit analysis (CBA) 
+<ul>
+<li>+ known cost, supplier motivation</li>
+<li>- higher price to absorb the additional risk, frozen requirements,
+<em>impossible</em> cost -- quality risk</li>
+</ul></li>
+<li><strong>Time and materails contracts</strong>: fixed rate/unit of effort
 
-* **Identify all the costs which could be:**
-  - development costs incl buy-ins
-  - set-up incl recruitment and training
-  - operational costs after set-up
-* **Identify the value of benefits**
-* **Check if benefits are greater than costs**
+<ul>
+<li>+ requirements changes, lack of price pressure</li>
+<li>- customer liability due to uncertain cost &amp; commitment, lack of incentive
+for supplier</li>
+</ul></li>
+<li><strong>Fixed price per delivered unit</strong>: incremental delivery and payment =&gt; a
+series of contracts
 
-*Costs and benefits must be identified and expressed in the same unit..*
+<ul>
+<li>+ customer understanding price calculation, comparability between pricing
+schedules, emerging functionality can be accounted, supplier motivated to
+be cost-effective</li>
+<li>- difficulties with SW size measurement - may need independent fixed price
+counter, changing requirements - how do you charge?</li>
+</ul></li>
+</ul>
 
-**Liftime of Return on Investment (ROI) for potential project**
+<h3>Cost-benefit analysis (CBA)</h3>
 
-* **Estimate timing costs and income**
-* **Development incurs costs**
-* **Release of system/product generates income - gradual pay off**
-* **Include decommissioning cost**
+<ul>
+<li><strong>Identify all the costs which could be:</strong>
 
-Typical project life cycle cash flow
-```
+<ul>
+<li>development costs incl buy-ins</li>
+<li>set-up incl recruitment and training</li>
+<li>operational costs after set-up</li>
+</ul></li>
+<li><strong>Identify the value of benefits</strong></li>
+<li><strong>Check if benefits are greater than costs</strong></li>
+</ul>
+
+<p><em>Costs and benefits must be identified and expressed in the same unit..</em></p>
+
+<p><strong>Liftime of Return on Investment (ROI) for potential project</strong></p>
+
+<ul>
+<li><strong>Estimate timing costs and income</strong></li>
+<li><strong>Development incurs costs</strong></li>
+<li><strong>Release of system/product generates income - gradual pay off</strong></li>
+<li><strong>Include decommissioning cost</strong></li>
+</ul>
+
+<p>Typical project life cycle cash flow
+<code>
   |
 i |
 n |
@@ -136,58 +160,68 @@ t |
 u |
 r |
 e |
-```
+</code></p>
 
-**Cost-benefit evaluation techniques**
+<p><strong>Cost-benefit evaluation techniques</strong></p>
 
-* **Return on investment (ROI) or also known as Accounting Rate of Return (ARR) 
-  = Net profit / total investment.**
+<ul>
+<li><strong>Return on investment (ROI) or also known as Accounting Rate of Return (ARR) 
+= Net profit / total investment.</strong></li>
+</ul>
 
-  Also useful for company individual choices
+<p>Also useful for company individual choices
   or features.
-* **Net profit:** 
+* <strong>Net profit:</strong> 
   - total income - total cost
-* **Payback period:** 
-  - time to break even
+* <strong>Payback period:</strong> 
+  - time to break even</p>
 
-```
-      average annual profit
+<pre><code>      average annual profit
 ROI = --------------------- X 100
         total investment
 
       value in year t
 NPV = ---------------
          (1 + r)^t
-```
+</code></pre>
 
-* **Net present-value**
-  - Present value of future cash flow
-* **Internal rate of return (IRR)**
-  - Internal rate of return (IRR) is the discount rate that would produce an NPV
-    of 0 for the project
-  - Can be used to compare different investment opportunities
-  - There is e.g. a Microsoft Excel function which can be used to calculate the
-    IRR (or use a suitable technique from numerical analysis)
+<ul>
+<li><strong>Net present-value</strong>
 
-## Portfolio Management (PM) 
+<ul>
+<li>Present value of future cash flow</li>
+</ul></li>
+<li><strong>Internal rate of return (IRR)</strong>
 
-Porfolio project management provides an overview of all the projects that an
+<ul>
+<li>Internal rate of return (IRR) is the discount rate that would produce an NPV
+of 0 for the project</li>
+<li>Can be used to compare different investment opportunities</li>
+<li>There is e.g. a Microsoft Excel function which can be used to calculate the
+IRR (or use a suitable technique from numerical analysis)</li>
+</ul></li>
+</ul>
+
+<h2>Portfolio Management (PM)</h2>
+
+<p>Porfolio project management provides an overview of all the projects that an
 organisation is undertaking or is considering. The optimization coverage of 
-product ranges and market segment are need &amp; profit.
+product ranges and market segment are need &amp; profit.</p>
 
-* **Predicting market**
-* **Evaluating proposals for projects**
-* **Checking for gaps &amp; overlaps**
+<ul>
+<li><strong>Predicting market</strong></li>
+<li><strong>Evaluating proposals for projects</strong></li>
+<li><strong>Checking for gaps &amp; overlaps</strong></li>
+</ul>
 
-For potential projects
-* **Balance total risk**
-* **Resource sharing**
-* **Dependencies between projects**
+<p>For potential projects
+* <strong>Balance total risk</strong>
+* <strong>Resource sharing</strong>
+* <strong>Dependencies between projects</strong></p>
 
-**Probability of**
+<p><strong>Probability of</strong></p>
 
-```
-               success
+<pre><code>               success
              high ^ 
                   |
                   |
@@ -202,12 +236,11 @@ low               |        xxxxxx   high
           xx      |
                   |
              low  |
-```                  
-                  
-**Optimize Over Time**
+</code></pre>
 
-```
+<p><strong>Optimize Over Time</strong></p>
 
+<pre><code>
 -----------------
 |  Project 1    |
 -----------------
@@ -225,70 +258,76 @@ low               |        xxxxxx   high
                                       ---------------------------------------
 ------------------------------------------------------------------------------&gt;
                                                                         time t
-```
-**Issues with PM**
+</code></pre>
 
-* **Will another project be more profitable?**
-* **Hard to express benefits in financial terms**
-* **Projects with the highest potential returns are often the most risky**
+<p><strong>Issues with PM</strong></p>
 
-##Programme Management
+<ul>
+<li><strong>Will another project be more profitable?</strong></li>
+<li><strong>Hard to express benefits in financial terms</strong></li>
+<li><strong>Projects with the highest potential returns are often the most risky</strong></li>
+</ul>
 
-**One definition:**  
-*a group of projects that are managed in a* **_co-ordinated_** *way to* **_gain benefits_**
- *that would not be possible where the projects to be managed independently*
-* **Business cycle programmes - common time &amp; resources**
-* **Strategic - with common goal**
-* **Infrastructure programmes - e.g. IT support projects**
-* **Research &amp; developemt (R&amp;D) development programmes - *safe* + *risky* projects**
-* **Innovative partnerships - new technologies, precompetitive**
+<h2>Programme Management</h2>
 
-**Responsibilities of a program manager**
-```
-_________________________________________________
-|                                               |
+<p><strong>One definition:</strong><br>
+<em>a group of projects that are managed in a</em> <strong><em>co-ordinated</em></strong> <em>way to</em> <strong><em>gain benefits</em></strong>
+ <em>that would not be possible where the projects to be managed independently</em>
+* <strong>Business cycle programmes - common time &amp; resources</strong>
+* <strong>Strategic - with common goal</strong>
+* <strong>Infrastructure programmes - e.g. IT support projects</strong>
+* <strong>Research &amp; developemt (R&amp;D) development programmes - <em>safe</em> + <em>risky</em> projects</strong>
+* <strong>Innovative partnerships - new technologies, precompetitive</strong></p>
+
+<p><strong>Responsibilities of a program manager</strong>
+```</p>
+
+<hr>
+
+<p>|                                               |
 |   Stakeholders, sponsors                      |
-|_______________________________________________|
+|____________________________________________<strong><em>|
                       /\ 
-                     /  \        |*Vision
-                      ||         |*Mandate
-                 _____||_____    |*Cost estimates of projects
+                     /  \        |<em>Vision
+                      ||         |</em>Mandate
+                 _</em></strong><em>||</em>____    |<em>Cost estimates of projects
                  |  Program |   / *Risk for projects
                  |  Manager |   \ *Resources
-                 -----||-----    |* ...
+                 -----||-----    |</em> ...
                       ||         |
-                     \  /        |
-                      \/
-------------------------------------------------
-|                                              |
+                     \  /        |</p>
+
+<h2>                      \/</h2>
+
+<p>|                                              |
 |   Projects                                   |
 |______________________________________________|
-```
+```</p>
 
-**Project Management at Programme Level**
+<p><strong>Project Management at Programme Level</strong>
 ```
-High Level activity plan
+High Level activity plan</p>
 
-  B                                            G 
-  --------------                               --------------
-  |Corporate   |_____________________________\ |Impl. corp  |
+<p>B                                            G </p>
+
+<hr>
+
+<p>|Corporate   |__________________________<strong><em>\ |Impl. corp  |
   |image design|                 /|\         / |interface   |
   --------------                  |            --------------
                                   |
 A                 C               |            F
 --------------    --------------  |            --------------
-|System study|___\|Build common|__|___________\|Data        |
+|System study|</em></strong>|Build common|<strong>|</strong>______<strong><em>|Data        |
 |/design     | | /|systems     |  |           /|migration   |
 -------------- |  --------------  |            -------------- 
                |  D               |   E               /|\
                |  --------------  |   --------------   |
-               |_\|Relocate    |_\|/_\|Training    |___|
+               |</em>|Relocate    |<em>|/</em>|Training    |</strong>_|
                  /|offices     |     /|            |
-                  --------------      -------------                  
+                  --------------      -------------<br>
 ```
-To this activity plan, an Gantt chart is made to overview the plan.
-
-</dd></dl>
+To this activity plan, an Gantt chart is made to overview the plan.</p>
 
       </div>
     </div>

@@ -6,8 +6,9 @@
     <title>Datateknik LTH</title>
     <meta name="description"/>
     <meta content="width=device-width" name="viewport"/>
-    <link href="../../../../stylesheets/application-44e2ed09.css" rel="stylesheet" type="text/css" />
-    <script src="../../../../javascripts/application-da39a3ee.js" type="text/javascript"></script>
+    <link href="../../../../stylesheets/application-8a4f0e68.css" rel="stylesheet" type="text/css" />
+    <script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+    <script src="../../../../javascripts/application-06509b7c.js" type="text/javascript"></script>
   </head>
   <body>
     <header>
@@ -121,8 +122,13 @@
                         |Security |
                         |Kernel   |
                         |Database |
-                        -----------   A: Requests access   B: Checks if subject has right to access object   C: Writes to audit    D: Grants/Denies access
+                        -----------
 </code></pre>
+
+<p>A: Requests access
+  B: Checks if subject has right to access object
+  C: Writes to audit 
+  D: Grants/Denies access</p>
 
 <p>*
   Controlled invocation
@@ -138,7 +144,7 @@
 <p>*
     Crypts
                       |  DES crypt         MD5 crypt         bcrypt
-    —————————————————————————
+    ---------------------------------------------------------------------------
     Password length   |  Max 8 chars       Infinity          max 72 chars
     Salt length       |  12 bits           12-48 bits        128 bits
     Variable cost     |  No                No                Yes
@@ -236,14 +242,14 @@ CHMOD for changes (CHMOD 111 file.txt)
 
 <pre><code>Search:
   Go through list until ALL requests is allowed, or ANY is denied, otherwise deny.
-  
+
 Consequences:
   Deny has precedence before allow.
-  
+
 Windows:
   User  -r
   Group rw ------&gt; user rw
-  
+
 Unix:
   User  -r
   Group rw ------&gt; user -r
@@ -286,24 +292,29 @@ Unix:
     Target stack or heap.</p>
 
 <p>Memory                  Stack
-  ————–      /   —————
+  --------------      /   ---------------
   |Kernel code  |   /     |Function     |
-  |&amp; data       |  /      |Parmeters    |
-  —————-        —————
-  |Stack  |               |Return address
-  |       V               —————
-  —————-        |Saved frame  |
+  |&amp; data       |  /      |Parmeters    |</p>
+
+<hr>
+
+<p>|Stack  |               |Return address
+  |       V               ---------------
+  ----------------        |Saved frame  |
   |Extra memory | \       |Pointer      |
-  ————–    \     —————
+  --------------    \     ---------------
   |       ^     |     \   |Local        |
   |Heap   |     |       \ |Variables    |
-  ————–          |             |
-  |Global data  |         —————
-  ————–
-  |Program      |
+  --------------          |             |
+  |Global data  |         ---------------</p>
+
+<hr>
+
+<p>|Program      |
   |machine      |
-  |code         |
-  ————–</p>
+  |code         |</p>
+
+<hr>
 
 <p>How does it work?
     Copy a large buffer into a small buffer.
@@ -329,9 +340,9 @@ Unix:
   SQL-injections Code injection technique.
     By inserting malicous SQL statements into an entry field for execution.</p>
 
-<pre><code>Ex. input: '; drop table users;--
+<pre><code>Ex. input: &#39;; drop table users;--
   can result in SQL query:
-    $QUERY=SELECT * FROM users WHERE name = ''; drop table users;--';
+    $QUERY=SELECT * FROM users WHERE name = &#39;&#39;; drop table users;--&#39;;
 
 Prevention:
   Excape quotes.
@@ -431,7 +442,7 @@ TODO DO NOT KNOW NOT DONE!!!!!
     The schemes are secure even if the adversary has unlimited computing power.</p>
 
 <p>*
-  Kerckhoff's principle
+  Kerckhoff&#39;s principle
     Only the key should be unknown to an adversary.
       Security should not be based on the fact that an algorithm is secret.</p>
 
@@ -443,7 +454,7 @@ TODO DO NOT KNOW NOT DONE!!!!!
 <pre><code>OTP
   Different substitutions for every character
 
-"Stream cipher is a number of OTP that repeats"
+&quot;Stream cipher is a number of OTP that repeats&quot;
 </code></pre>
 
 <p>*
@@ -609,7 +620,7 @@ Kerberos - Like Needham-Schroeder with timestamps and limited lifetime for keys,
 
 <p>*
   SSL handshake when RSA is used:
-    Client generates "premaster secret" and uses RSA to encrypt it with public key of server.</p>
+    Client generates &quot;premaster secret&quot; and uses RSA to encrypt it with public key of server.</p>
 
 <pre><code>Client Hello
   Client random
@@ -689,8 +700,8 @@ ESP makes real source and destination unknown to intermediate routers when combi
     Working on layers 3 (IP) and 4 (TCP/UDP).
     Packets examined individually.
     Base filter on ip and port.
-    Permissive policies - Allow all except…
-    Restrictive policies - Deny all except…</p>
+    Permissive policies - Allow all except...
+    Restrictive policies - Deny all except...</p>
 
 <pre><code>Problem: must allow all ports &gt;1023 in order to allow e.g. ftp, http ...
 </code></pre>
@@ -710,7 +721,7 @@ ESP makes real source and destination unknown to intermediate routers when combi
     Uses statistics
     Attacks are not necessary anomalies
     Common metrics
-      Counter, Gauge, Interval timer, resource utilization…
+      Counter, Gauge, Interval timer, resource utilization...
     Finding anomalies
       Mean and standard deviation.
       Multivariate

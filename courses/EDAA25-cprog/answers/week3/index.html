@@ -6,8 +6,9 @@
     <title>Datateknik LTH</title>
     <meta name="description"/>
     <meta content="width=device-width" name="viewport"/>
-    <link href="../../../../stylesheets/application-44e2ed09.css" rel="stylesheet" type="text/css" />
-    <script src="../../../../javascripts/application-da39a3ee.js" type="text/javascript"></script>
+    <link href="../../../../stylesheets/application-8a4f0e68.css" rel="stylesheet" type="text/css" />
+    <script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+    <script src="../../../../javascripts/application-06509b7c.js" type="text/javascript"></script>
   </head>
   <body>
     <header>
@@ -24,33 +25,31 @@
       <div class="inner clearfix">
         <section id="main-content">
           <ol>
-  <li>For characters requiring 32 bits there are two options available for a C
-programmer:
-    <ul>
-      <li>Wide characters:  these use type wchar_t for objects and the prefix L with
-                  character constants and strings (of wide chars)
-                  There are two disadvantages, a type different from plain
-                  char must be used and it's a potential waste of memory
-                  since all characters must use a fixed width container.</li>
-      <li>Multibyte characters: UTF-8, and other similar encodings. Advantages
-                      include: ASCII compatibility, saves memory compared
-                      to wchat_t and it is self synchronizing. Quick
-                      recap: ASCII requires 7 bits, the eigth bit is used
-                      to indicate if it is a non-ASCII character. I.e. set
-                      to one when the represented character isn't ASCII.</li>
-    </ul>
-  </li>
-  <li>
-    <p>The program prints 8. The loop has its own scope.</p>
-  </li>
-  <li>Linkage has to do with scope.
-    <ul>
-      <li>Internal linkage: file scope (static variables outside of functions and
+<li><p>For characters requiring 32 bits there are two options available for a C
+programmer:</p>
+
+<ul>
+<li>Wide characters:  these use type wchar_t for objects and the prefix L with
+                character constants and strings (of wide chars)
+                There are two disadvantages, a type different from plain
+                char must be used and it&#39;s a potential waste of memory
+                since all characters must use a fixed width container.</li>
+<li>Multibyte characters: UTF-8, and other similar encodings. Advantages
+                    include: ASCII compatibility, saves memory compared
+                    to wchat_t and it is self synchronizing. Quick
+                    recap: ASCII requires 7 bits, the eigth bit is used
+                    to indicate if it is a non-ASCII character. I.e. set
+                    to one when the represented character isn&#39;t ASCII.</li>
+</ul></li>
+<li><p>The program prints 8. The loop has its own scope.</p></li>
+<li><p>Linkage has to do with scope.</p>
+
+<ul>
+<li>Internal linkage: file scope (static variables outside of functions and
               externed varibles)</li>
-      <li>No linkage: only linkage outside of current scope.</li>
-      <li>External linkage: linkage outside of current scope.</li>
-    </ul>
-  </li>
+<li>No linkage: only linkage outside of current scope.</li>
+<li>External linkage: linkage outside of current scope.</li>
+</ul></li>
 </ol>
 
 <p>Example:
@@ -64,27 +63,26 @@ programmer:
       extern int a; //external linkage (same as outer a)
     }</p>
 
-<pre><code>return 0;   }   ``` 1.  Type aliasing: two values with incompatible types are used to access the
-same or partially overlapping objects. This is a violation of the ANSI C
-aliasing rules.
+<pre><code>return 0;
 </code></pre>
 
+<p>}
+  ```
+1.  Type aliasing: two values with incompatible types are used to access the
+    same or partially overlapping objects. This is a violation of the ANSI C
+    aliasing rules.</p>
+
 <ol>
-  <li>
-    <p>Since unsigned integers can only represent positive integers, using the
+<li><p>Since unsigned integers can only represent positive integers, using the
 unsigned version results in being able to represent twice as many positive
 numbers. Meaning that the bit representation of -5 is the same as some large
-number, when using an unsigned type.</p>
-  </li>
-  <li>
-    <p>This process is called integer promotion, and it occurs when performing
+number, when using an unsigned type.</p></li>
+<li><p>This process is called integer promotion, and it occurs when performing
 arithmetic on a type ranked lower than an int. The value of the varible
 is then represented in an int if the original type can be represented within
 an int (can be promoted to unsigned int if the value cannot be contained
-within the signed int).</p>
-  </li>
-  <li>
-    <p>When only needing to represent a small number, one can use a bit-field.
+within the signed int).</p></li>
+<li><p>When only needing to represent a small number, one can use a bit-field.
 Specifying something like:
 <code>
 struct {
@@ -93,26 +91,23 @@ struct {
 } rect;
 </code></p>
 
-    <p>The compiler will then add padding to the struct, making it atleast the size
+<p>The compiler will then add padding to the struct, making it atleast the size
 of an int. (I.e. sizeof(rect) will most likely result in 4.)</p>
 
-    <p>We should use unsigned ints since the result of the following example can
+<p>We should use unsigned ints since the result of the following example can
 result in both 1 and -1. (Due to compilers using different signedness)
 ```
 struct {
   int a:1;
 } node;</p>
 
-    <p>node.a = 1;</p>
+<p>node.a = 1;</p>
 
-    <p>printf("%d\n", node.a);
-```</p>
-  </li>
-  <li>
-    <p>Enums are integer-based, meaning that they cannot represent larger numbers
+<p>printf(&quot;%d\n&quot;, node.a);
+```</p></li>
+<li><p>Enums are integer-based, meaning that they cannot represent larger numbers
 or fractions. When debugging however, they are useful, since the debugger
-can print out their variable names.</p>
-  </li>
+can print out their variable names.</p></li>
 </ol>
 
       </div>
