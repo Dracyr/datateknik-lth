@@ -85,6 +85,20 @@ helpers do
       partial "/courses/#{course.name}/Readme.md"
     end
   end
+
+  def breadcrumbs
+    ab = current_page.path.split('/')
+    if ab.length > 1
+      course_index_offset = (ab.length == 3 && ab.last.include?('index')) ? 1 : 0
+      root_path   = '../' * (ab.length - course_index_offset)
+      course_path = '../' * (ab.length - 2 - course_index_offset) 
+      ab[0] = (link_to "Kurser", root_path, class: 'nav-link')
+      ab[1] = (link_to ab[1], course_path, class: 'nav-link')
+      ab.join(" / ").gsub(".html", '').html_safe
+    else
+      ''
+    end
+  end
 end
 
 ready do
