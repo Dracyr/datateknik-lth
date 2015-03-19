@@ -3,6 +3,7 @@ require "better_errors"
 
 set :protect_from_csrf, true
 set :layout, :default
+config.encoding = 'utf-8'
 
 activate :directory_indexes
 activate :livereload, host: 'localhost'
@@ -91,7 +92,7 @@ helpers do
     if ab.length > 1
       course_index_offset = (ab.length == 3 && ab.last.include?('index')) ? 1 : 0
       root_path   = '../' * (ab.length - course_index_offset)
-      course_path = '../' * (ab.length - 2 - course_index_offset) 
+      course_path = '../' * (ab.length - 2 - course_index_offset)
       ab[0] = (link_to "Kurser", root_path, class: 'nav-link')
       ab[1] = (link_to ab[1], course_path, class: 'nav-link')
       ab.join(" / ").gsub(".html", '').html_safe
@@ -113,13 +114,15 @@ configure :build do
   activate :minify_css
 
   # Minify Javascript on build
-  # activate :minify_javascript
+  activate :minify_javascript
 
   # Enable cache buster
   activate :asset_hash
 
   # Use relative URLs
   activate :relative_assets
+
+  activate :gzip
 
   # Or use a different image path
   # set :http_prefix, "/Content/images/"

@@ -1,7 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    activesupport (4.1.9)
+    activesupport (4.1.10)
       i18n (~> 0.6, >= 0.6.9)
       json (~> 1.7, >= 1.7.7)
       minitest (~> 5.1)
@@ -79,9 +79,9 @@ GEM
       middleman-core (>= 3.2)
       net-sftp
       ptools
-    middleman-livereload (3.3.4)
+    middleman-livereload (3.4.2)
       em-websocket (~> 0.5.1)
-      middleman-core (~> 3.2)
+      middleman-core (>= 3.3)
       rack-livereload (~> 0.3.15)
     middleman-sprockets (3.4.2)
       middleman-core (>= 3.3)
@@ -137,7 +137,7 @@ PLATFORMS
 
 DEPENDENCIES
   better_errors
-  middleman (~> 3.3.3)
-  middleman-deploy (~> 1.0)
-  middleman-livereload (~> 3.3.0)
+  middleman
+  middleman-deploy
+  middleman-livereload
   redcarpet
