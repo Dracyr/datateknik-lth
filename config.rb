@@ -45,25 +45,33 @@ configure :development do
 end
 
 helpers do
-  def page_title
-    title = data.page.heading ? "#{data.page.heading}" : "Just Another Site"
-    strip_tags(title)
+  def course_files(course)
+    folders = folder_list(course.children)
+
+    file_heading = course.files.any? ? content_tag(:h2, "Filer") : ''
+    files = file_heading + file_list(course.files)
+    (folders + files)
   end
 
-  def folders(nodes, l = 2)
-    nodes.collect do |node|
-      heading = content_tag("h#{l}", node.name.humanize)
+  def folder_list(children, l = 2)
+    return '' if children.nil?
+    children.collect do |child|
+      heading = content_tag("h#{l}", child.name.humanize)
 
-      list = content_tag(:ul, class: 'list-unstyled') do
-        node.files.sort.collect do |file|
-          content_tag :li do
-            link_to file.gsub(".html", ''), "#{node.path}/#{file}", relative: true
-          end
-        end.join('')
-      end
+      list = file_list(child.files, "#{child.path}/")
 
-      children = node.children.any? ? folders(node.children, [l + 1, 6].min) : ''
+      children = folder_list(child.children, [l + 1, 6].min)
       heading + list + children
+    end.join('').html_safe
+  end
+
+  def file_list(files, path = '')
+    return '' if files.nil?
+    files.sort.collect do |file|
+      content_tag(:li, class: 'list-unstyled') do
+        file_path = "#{path}#{file}"
+        link_to file.gsub(".html", ''), file_path, relative: true
+      end
     end.join('').html_safe
   end
 
@@ -88,17 +96,15 @@ helpers do
   end
 
   def breadcrumbs
-    ab = current_page.path.split('/')
-    if ab.length > 1
-      course_index_offset = (ab.length == 3 && ab.last.include?('index')) ? 1 : 0
-      root_path   = '../' * (ab.length - course_index_offset)
-      course_path = '../' * (ab.length - 2 - course_index_offset)
-      ab[0] = (link_to "Kurser", root_path, class: 'nav-link')
-      ab[1] = (link_to ab[1], course_path, class: 'nav-link')
-      ab.join(" / ").gsub(".html", '').html_safe
-    else
-      ''
-    end
+    path_split = current_page.path.split('/')
+    return '' if path_split.length <= 2
+    course_index_offset = (path_split.length == 3 && path_split.last.include?('index')) ? 1 : 0
+    root_path   = '../' * (path_split.length - course_index_offset)
+    course_path = '../' * (path_split.length - course_index_offset - 2)
+
+    path_split[0] = link_to("Kurser", root_path, class: 'nav-link')
+    path_split[1] = link_to(path_split[1], course_path, class: 'nav-link')
+    path_split.join(" / ").gsub(".html", '').html_safe
   end
 end
 

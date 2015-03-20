@@ -3,14 +3,5 @@
 
   <%= course_readme(course) %>
 
-  <%= folders(course.children) %>
-
-  <% if course.files.any? %>
-    <h2>Filer</h2>
-    <ul class="list-unstyled">
-      <% course.files.sort.each do |file| %>
-        <li><%= link_to file.gsub('.html', ''), file, relative: true %></li>
-      <% end %>
-    </ul>
-  <% end %>
+  <%= course_files(course) %>
 <% end %>
