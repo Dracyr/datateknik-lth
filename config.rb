@@ -9,7 +9,7 @@ activate :directory_indexes
 activate :livereload, host: 'localhost'
 
 set :markdown_engine, :redcarpet
-set :markdown, fenced_code_blocks: true
+set :markdown, fenced_code_blocks: true, tables: true, gh_blockcode: true
 
 ###
 # Page options, layouts, aliases and proxies
